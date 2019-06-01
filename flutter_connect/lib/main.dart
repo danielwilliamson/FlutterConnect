@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_connect/Screens/loginScreen.dart';
+import 'package:flutter_connect/Screens/onboardingScreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,7 +10,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      home: LoginScreen(),
+      theme: ThemeData(),
+      home: OnboardingScreen(),
       routes: {'/login': (c) => LoginScreen()},
     );
   }
