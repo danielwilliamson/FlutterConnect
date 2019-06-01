@@ -70,7 +70,7 @@ class _FriendsListPageState extends State<FriendsListPage> {
     }
 
     return new Scaffold(
-      appBar: new AppBar(title: new Text('Friends')),
+      appBar: new AppBar(title: new Text('Flutter Dev')),
       body: content,
     );
   }
