@@ -11,7 +11,8 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(children: [
-        FlatButton(child: Text('Login'), onPressed: () => _loginUser())
+        FlatButton(child: Text('Login'), onPressed: () => _loginUser()),
+        FlatButton(child: Text('Profile'), onPressed: () => _navigateToProfile())
       ]),
       appBar: AppBar(title: Text('LoginScreen')),
     );
@@ -19,5 +20,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   _loginUser() async {
     await FirebaseAPI().handleSignIn();
+  }
+
+  _navigateToProfile() {
+    Navigator.pushNamed(context, '/profile');
   }
 }
