@@ -1,15 +1,15 @@
 import 'package:flutter_connect/model/skill.dart';
 
 class User {
-  final String id;
-  final String name;
-  final String email;
-  final String city;
-  final String linkedInID;
-  final String githubID;
-  final List<Skill> skills;
-  final List<User> friends;
-  final String photoUrl;
+  String id;
+  String name;
+  String email;
+  String city;
+  String linkedInID;
+  String githubID;
+  Skills skills;
+  List<User> friends;
+  String photoUrl;
 
   User(
     this.id,
@@ -21,5 +21,13 @@ class User {
     this.githubID,
     this.friends,
     this.photoUrl,
-  ) : assert(id != null, name != null);
+  ) : assert(name != null);
+
+  User.fromJson(Map<String, dynamic> json) {
+    this.name = json["name"];
+    this.email = json["email"];
+    this.city = json["city"];
+  }
+
+
 }
