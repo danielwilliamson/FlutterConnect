@@ -11,6 +11,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Map<OnboardingScreenType, int> selectedLevels =
       Map<OnboardingScreenType, int>();
 
+  final numberOfScreens = 7;
+
   @override
   void initState() {
     // TODO: implement initState
@@ -27,7 +29,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
     return Scaffold(
         body: PageView.builder(
-            itemCount: 7,
+            itemCount: numberOfScreens,
             controller: pageViewController,
             itemBuilder: (c, index) {
               OnboardingScreenType type = OnboardingScreenType.introduction;
@@ -58,6 +60,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
               return SingleScreen(type, (level) {
                 selectedLevels.putIfAbsent(type, () => level);
+
+                if (type == OnboardingScreenType.advanvedTopics) {
+                  Navigator.of(context).pushReplacementNamed('/main');
+                }
+
                 _handleNextTapped();
               });
             }));
