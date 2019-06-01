@@ -3,12 +3,11 @@ import 'dart:convert';
 
 class GithubAPI {
 
-  static String baseUrl = "http://api.github.com";
+  static String baseUrl = "https://api.github.com";
 
   static Future<List<Repository>> getUserRepositories(String userName) async {
     final response = await http.get('$baseUrl/users/$userName/repos');
     List<dynamic> list = json.decode(response.body);
-    print(list);
     List<Repository> repos = new List();
     list.forEach((item) => {
       repos.add(Repository(item))
