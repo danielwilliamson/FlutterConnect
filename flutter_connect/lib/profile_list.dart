@@ -30,7 +30,7 @@ class _ProfileListState extends State<ProfileList> {
                   List<DocumentSnapshot> skills = snapshot.data.documents;
                   DocumentSnapshot skillSnap = skills[0];
 
-                  Skills userSkills = Skills.fromJson(skillSnap.data);
+                  Skill userSkills = Skill.fromJson(skillSnap.data);
                   return ListTile(
                     title: Text(user["name"]),
                     subtitle: Text(

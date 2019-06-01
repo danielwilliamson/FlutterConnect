@@ -7,7 +7,7 @@ class User {
   String city;
   String linkedInID;
   String githubID;
-  Skills skills;
+  Skill skills;
   List<User> friends;
   String photoUrl;
 
