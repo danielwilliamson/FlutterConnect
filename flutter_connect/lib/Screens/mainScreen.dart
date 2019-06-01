@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_connect/Screens/searchScreen.dart';
+import 'package:flutter_connect/ui/friends/friends_list_page.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -13,10 +14,7 @@ class _MainScreenState extends State<MainScreen> {
 
   static List<Widget> _widgetOptions = <Widget>[
     SearchScreen(),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
+    FriendsListPage(),
     Text(
       'Index 2: School',
       style: optionStyle,

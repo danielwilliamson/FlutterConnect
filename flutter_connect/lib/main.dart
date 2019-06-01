@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_connect/Screens/loginScreen.dart';
 import 'package:flutter_connect/Screens/onboardingScreen.dart';
-import 'package:flutter_connect/ui/friends/friends_list_page.dart';
 import 'package:flutter_connect/Screens/mainScreen.dart';
-// import 'package:flutter_connect/Screens/onboardingScreen.dart';
+import 'package:flutter_connect/Screens/onboardingScreen.dart';
 
 void main() => runApp(MyApp());
 

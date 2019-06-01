@@ -10,10 +10,52 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   List<User> dummyData() {
     return [
-      User('9', 'David', 'david@gmail.com', 'Sydney', [Skill('Advanced UI', 5)],
-          '222', '223', null, null),
-      User('7', 'Andrew', 'andrew@gmail.com', 'Sydney',
-          [Skill('Advanced Topics', 2)], '222', '223', null, null)
+      User(
+          '9',
+          'David',
+          'david@gmail.com',
+          'Sydney',
+          [Skill('Basic UI', 5), Skill('Data', 4), Skill('Advanced UI', 4)],
+          '222',
+          '223',
+          null,
+          null),
+      User(
+          '7',
+          'Andrew',
+          'andrew@gmail.com',
+          'Sydney',
+          [
+            Skill('Advanced Topics', 5),
+          ],
+          '222',
+          '223',
+          null,
+          null),
+      User(
+          '7',
+          'Max',
+          'andrew@gmail.com',
+          'Sydney',
+          [
+            Skill('Advanced Topics', 4),
+          ],
+          '222',
+          '223',
+          null,
+          null),
+      User(
+          '7',
+          'Sarah',
+          'andrew@gmail.com',
+          'Belgium',
+          [
+            Skill('Advanced Topics', 4),
+          ],
+          '222',
+          '223',
+          null,
+          null)
     ];
   }
 
@@ -33,48 +75,55 @@ class _SearchScreenState extends State<SearchScreen> {
       child: Column(children: [
         TextField(
             onChanged: (newText) {
+              print('TextChaned');
               setState(() {
                 searchedData = dummyData().where((user) {
                   user.name.contains(newText);
                 });
+
+                print(searchedData);
               });
             },
             decoration: InputDecoration(
                 border: OutlineInputBorder(), hasFloatingPlaceholder: true)),
         ListView.builder(
+            shrinkWrap: true,
             itemCount: searchedData.length,
             itemBuilder: (c, index) {
               final user = searchedData[index];
 
-              return Row(children: [Text(user.name)]);
+              return Card(
+                  child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        user.name,
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                      Container(
+                        height: 10,
+                      ),
+                      Text(
+                        user.city,
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                      Container(
+                        height: 10,
+                      ),
+                      Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: user.skills.map((s) {
+                            return Text(s.name + '  -  ' + '${s.level}');
+                          }).toList()),
+                    ]),
+              ));
             })
       ]),
     );
-  }
-}
-
-class CustomSearchDelegate extends SearchDelegate {
-  @override
-  List<Widget> buildActions(BuildContext context) {
-    // TODO: implement buildActions
-    return null;
-  }
-
-  @override
-  Widget buildLeading(BuildContext context) {
-    // TODO: implement buildLeading
-    return null;
-  }
-
-  @override
-  Widget buildResults(BuildContext context) {
-    // TODO: implement buildResults
-    return null;
-  }
-
-  @override
-  Widget buildSuggestions(BuildContext context) {
-    // TODO: implement buildSuggestions
-    return null;
   }
 }
