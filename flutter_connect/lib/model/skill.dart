@@ -1,4 +1,4 @@
-class Skills{
+class Skill{
   int basicUIKnowledge;
   int stateManagement;
   int data;
@@ -7,7 +7,7 @@ class Skills{
   int advancedTopics;
 
 
-  Skills.fromJson(Map<String, dynamic> json) {
+  Skill.fromJson(Map<String, dynamic> json) {
     this.basicUIKnowledge = json["Basic UI Knowledge"];
     this.stateManagement = json["State Management"];
     this.data = json["Data"];
