@@ -116,8 +116,7 @@ class _SingleScreenState extends State<SingleScreen> {
                   child: contentForType())
             ],
           ),
-          if (widget.type == OnboardingScreenType.introduction ||
-              widget.type == OnboardingScreenType.advanvedTopics)
+          if (widget.type == OnboardingScreenType.introduction)
             Positioned(
               right: 0,
               bottom: 20,

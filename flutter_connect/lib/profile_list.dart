@@ -7,8 +7,6 @@ class ProfileList extends StatefulWidget {
 }
 
 class _ProfileListState extends State<ProfileList> {
-
-
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
